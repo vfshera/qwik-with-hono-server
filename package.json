@@ -1,6 +1,6 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "Blank project with routing included",
+  "name": "qwik-hono",
+  "description": "Qwik project with routing and Honojs included",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
@@ -15,6 +15,7 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adapters/hono/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
     "dev": "vite --mode ssr",
@@ -23,6 +24,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
+    "serve": "node server/entry.hono.js",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
@@ -40,5 +42,13 @@
     "undici": "*",
     "vite": "5.3.5",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "cli-table3": "^0.6.5",
+    "dotenv": "^16.4.7",
+    "dotenv-expand": "^12.0.1",
+    "hono": "^4.6.14",
+    "zod": "^3.24.1"
   }
 }
