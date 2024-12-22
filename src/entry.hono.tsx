@@ -66,9 +66,9 @@ app.use(serveStatic({ path: distDir }));
 
 // HOW TO MAKE THIS HANDLER WORK?
 // Use Qwik City's page and endpoint request handler
-app.use((ctx, next) => router(ctx.req, ctx.res, next));
+app.use((ctx, next) => router(ctx.req.raw, ctx.res.raw, next));
 // Use Qwik City's 404 handler
-app.use((ctx, next) => notFound(ctx.req, ctx.env.outgoing, next));
+app.use((ctx, next) => notFound(ctx.req.raw, ctx.res.raw, next));
 
 serve(
   {
